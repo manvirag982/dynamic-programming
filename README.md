@@ -1,4 +1,4 @@
-# dynamic-programming
+# dynamic-programming and their recursions
 
 
 IT INCLUDE ALL DYNAMIC PROGRAMMMING FAMOUS QUESTION WITH GREAT EXPLANATION
