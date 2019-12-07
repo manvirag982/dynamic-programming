@@ -80,8 +80,8 @@ int main() {
 	    
 	    for(int i=n-2;i>=0;i--)
 	    {
-	        if(a[i]+i>=n-1)
-	          dp[i]=1;
+	        if(a[i]+i>=n-1)    // according to question
+  	          dp[i]=1;
 	        else
 	          {
 	              lint res=INT_MAX;
@@ -95,8 +95,8 @@ int main() {
 	          }
 	        
 	    }
-	    if(dp[0]>n)
-	    cout<<"-1"<<endl;
+	    if(dp[0]>n)          // ifdp[0] INT_MAX	 MEANS somewhere is zero present like 1,0  or 2 ,0,0 or 3,0,0,0 etc
+            cout<<"-1"<<endl;
 	    else
 	    cout<<dp[0]<<endl;
 	    
