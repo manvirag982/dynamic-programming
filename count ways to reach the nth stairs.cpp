@@ -1,0 +1,104 @@
+/*There are N stairs, a person standing at the bottom wants to reach the top. The person can climb either 1 stair or 2 stairs at a time. Count the number of ways, the person can reach the top (order does matter).
+
+Input:
+The first line contains an integer 'T' denoting the total number of test cases. In each test cases, an integer N will be given.
+
+Output:
+For each testcase, in a new line, print number of possible ways to reach Nth stair. Answer your output % 10^9+7.
+
+Constraints:
+1<=T<=105
+1<=N<=105
+
+Example:
+Input:
+3
+4
+10
+24
+Output:
+5
+89
+75025*/
+
+
+
+// first as usual recursion
+
+
+
+#include <iostream>
+using namespace std;
+int upstairsways(int n,int i){
+    
+    if(i==n)
+    return 1;
+    else if(i>n)
+    return 0;
+    else 
+    {
+        int count=0;
+        
+        count=upstairsways(n,i+1);
+        count+=upstairsways(n,i+2);
+        
+        return count%1000000007;
+    }
+    
+    
+}
+int main() {
+	
+	int t; cin>>t;  while(t--){
+	    
+	    int n; cin>>n;
+	    
+	    cout<<upstairsways(n,0)<<endl;
+	}
+	return 0;
+}
+
+
+
+
+// now the boss :) dynamic
+
+
+#include <iostream>
+using namespace std;
+int main() {
+	
+	    
+	   int n=100000; 
+	    
+	   int dp[n+1][3];
+	   
+	   for(int i=0;i<3;i++)
+	   dp[0][i]=1;
+	   for(int i=1;i<=n;i++)
+	   dp[i][0]=0;
+	   
+	   
+	   for(int i=1;i<=n;i++)
+	   {
+	       for(int j=1;j<3;j++)
+	       {
+	           if(i-j<0)
+	           {dp[i][j]=dp[i][j-1]; continue;}   //to remove one case when i=1 ,j=2
+	           if(j==1)
+	           dp[i][j]=(dp[i-1][2])%1000000007;        //constraints of question
+	           if(j==2)
+	           dp[i][j]=(dp[i-2][2]+dp[i][j-1])%1000000007;
+	       }
+	   }
+	 
+	   
+	   int t; cin>>t;  while(t--){
+	       
+	       int n; cin>>n;
+	       
+	       cout<<dp[n][2]<<endl;
+	   }
+	  
+	return 0;
+}
