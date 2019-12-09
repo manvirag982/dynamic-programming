@@ -21,7 +21,7 @@ Output:
 89
 75025*/
 
-
+// question is saying order matters means total combination means for 4 1 1 2 , 2 1 1, 1 2 1  are the different;
 
 // first as usual recursion
 
