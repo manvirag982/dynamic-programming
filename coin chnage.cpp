@@ -65,9 +65,9 @@ int main(){
             for(int j=1;j<=s;j++)
             {
                 if(j<a[i-1])
-                dp[i][j]=dp[i-1][j];
+                dp[i][j]=dp[i-1][j];           // if coin > sum we can't include it ,,so we wiil fill previous value
                 else
-                dp[i][j]=dp[i][j-a[i-1]]+dp[i-1][j];
+                dp[i][j]=dp[i][j-a[i-1]]+dp[i-1][j];    //   like  2,3 coins  sum =5  now i select 2 coin then i will have to see total combinatio of 5-2=3   
             }
         }
         
