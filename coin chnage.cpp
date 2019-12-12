@@ -75,3 +75,8 @@ int main(){
     }
     return 0;
 }
+
+
+
+.......................................//application
+	/*Given two integers ‘n’ and ‘sum’, find count of all n digit numbers with sum of digits as ‘sum’. Leading 0’s are not counted as digits. Print your output % 10^9+7.*/
